@@ -1,46 +1,51 @@
 <?php
-// This is a line comment
-/*
-This is a block comment
-*/
-const HELLO_WORLD = 1; //Constantid suure tähega ja alakriipsuga kui mitu sõna
-$num =1; //int
-$bar = 4.1; //float
-$num = 'hello';
-$num = HELLO_WORLD; //string
-$num = true; // boolean
-$num = false;
-$num = [1,2,3,4,5,6]; //array
-$num = ['red' => 1, 
-        'blue'=> 2, 
-        'green' =>3
-];
-$num = ['red' => 1,100 => 2,3,200 => 4,5, 'foo' => 'bar'];
 
-$num = 1;
-$num = 1 + 1;
-$num = 1 - 1;
-$num = 1 * 1;
-$num = 1 / 1;
-$num = 4 % 2;
-$num += 1;
-$num -= 1;
-$num *= 1;
-$num /= 1;
-$num %= 1;
-$num ++;
-$num --;
-$num = 5**2;
-$num = true && false;
-$num = true || false;
-$num = 10 > 1;
-$num = 10 == 10;
-$num = '10' == 10;
-$num = '10' === 10;
-$num = '10' !== 10;
-$num = '10' != 10;
-$num = 'hello' . 'world';
-$num .= 'world';
+class Box {
+        public $width;
+        public $height;
+        public $length;
+        public $color;
+        public $material;
+        public function open(){
+                echo 'box is open';
+        }
+        public function close(){
+                echo 'box is closed';
+        }
+}
 
-var_dump($num);
+$box1 = new Box();
+$box1 -> width = 10;
+$box1 -> height = 10;
+$box1 -> length = 10;
+$box1 -> color = 'red';
+$box1 -> material = 'wood';
+var_dump($box1);
+$box1 -> open();
 
+$box2 = new Box();
+$box2 -> width = 20;
+$box2 -> height = 20;
+$box2 -> length = 30;
+$box2 -> color = 'green';
+$box2 -> material = 'metal';
+var_dump($box2);
+$box2 -> open();
+
+var_dump($box1);
+
+class MetalBox extends Box {
+        public $material = 'metal';
+        public $conductivity;
+
+        public function electrify(){
+                $this -> height = 10;
+                var_dump($this->width);
+                echo 'wuush';
+        }
+}
+
+$box3 = new MetalBox();
+$box3 -> electrify();
+$box3 -> open();
+var_dump($box3);
